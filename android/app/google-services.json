@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "349014531437",
+    "firebase_url": "https://chatapp-3ae6f.firebaseio.com",
+    "project_id": "chatapp-3ae6f",
+    "storage_bucket": "chatapp-3ae6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349014531437:android:664accf563209446758e64",
+        "android_client_info": {
+          "package_name": "com.iamshm.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "349014531437-45dhuf96lga32op4f3atsjd8sr4g6auo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqeWJV7NKesZFjTfF00wh8geA0B5mKhC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "349014531437-45dhuf96lga32op4f3atsjd8sr4g6auo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
