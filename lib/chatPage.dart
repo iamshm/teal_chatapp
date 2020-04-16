@@ -173,7 +173,7 @@ class _ChatState extends State<Chat> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.fromLTRB(10, 5, 5, 10),
+              padding: const EdgeInsets.fromLTRB(10, 5, 0, 10),
               height: 60,
               width: MediaQuery.of(context).size.width,
               child: Row(
@@ -199,8 +199,7 @@ class _ChatState extends State<Chat> {
                           borderRadius: BorderRadius.circular(30),
                         ),
                         suffixIcon: IconButton(
-                            icon: Icon(Icons.insert_emoticon),
-                            onPressed: () {}),
+                            icon: Icon(Icons.send), onPressed: () {}),
                         border: InputBorder.none),
                     controller: messageController,
                   )),
