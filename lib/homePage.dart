@@ -108,7 +108,7 @@ class _RegistrationState extends State<Registration> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tensor Chat"),
+        title: Text("Simple Chat"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

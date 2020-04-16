@@ -42,96 +42,97 @@ class _ChatState extends State<Chat> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.white,
-                child: Column(children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+            //appbar
+            Container(
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+              height: 150,
+              color: Colors.white,
+              child: Column(children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.chevron_left),
+                      color: Colors.black54,
+                      iconSize: 32,
+                      onPressed: () {
+                        _auth.signOut();
+                        Navigator.of(context)
+                            .popUntil((route) => route.isFirst);
+                      },
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(35, 0, 10, 0),
+                  child: Row(
                     children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.chevron_left),
-                        color: Colors.black54,
-                        iconSize: 32,
-                        onPressed: () {
-                          _auth.signOut();
-                          Navigator.of(context)
-                              .popUntil((route) => route.isFirst);
-                        },
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(35, 0, 10, 0),
-                    child: Row(
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              "https://www.woolha.com/media/2019/06/buneary.jpg"),
-                          radius: 35,
-                        ),
-                        SizedBox(width: 15),
-                        Column(
-                          children: <Widget>[
-                            Container(
-                              child: Text(
-                                'Nilanjana C',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontSize: 20,
-                                ),
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            "https://www.woolha.com/media/2019/06/buneary.jpg"),
+                        radius: 35,
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(10, 0, 80, 0),
+                            child: Text(
+                              'Nilanjana C',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 20,
                               ),
                             ),
-                            Container(
-                              child: Text(
-                                'Verified Nutrionist',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontSize: 12,
-                                ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(10, 0, 80, 0),
+                            child: Text(
+                              'Verified Nutrionist',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 12,
                               ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        width: 70,
+                        height: 20,
+                        // color: Color(0xff45e19d),
+                        decoration: BoxDecoration(
+                          color: Color(0xff45e19d),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(0.0, 1.0), //(x,y)
+                              blurRadius: 3.0,
                             ),
                           ],
                         ),
-                        SizedBox(width: 90),
-                        Container(
-                          width: 70,
-                          height: 20,
-                          // color: Color(0xff45e19d),
-                          decoration: BoxDecoration(
-                            color: Color(0xff45e19d),
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey,
-                                offset: Offset(0.0, 1.0), //(x,y)
-                                blurRadius: 3.0,
-                              ),
-                            ],
-                          ),
-                          child: Center(
-                            child: FlatButton(
-                              child: Text(
-                                'Live Call',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 8),
-                              ),
-                              onPressed: null,
+                        child: Center(
+                          child: FlatButton(
+                            child: Text(
+                              'Live Call',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 8),
                             ),
+                            onPressed: null,
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                      )
+                    ],
                   ),
-                ]),
-              ),
+                ),
+              ]),
             ),
-            SizedBox(height: 5),
+
+            //chatpart
             Expanded(
               flex: 4,
               child: StreamBuilder<QuerySnapshot>(
@@ -165,9 +166,10 @@ class _ChatState extends State<Chat> {
                 },
               ),
             ),
+            //Inputfield
             Container(
-              padding: const EdgeInsets.fromLTRB(20, 4, 10, 0),
-              height: 50,
+              padding: const EdgeInsets.fromLTRB(20, 4, 10, 10),
+              height: 60,
               child: Row(
                 children: <Widget>[
                   Container(
@@ -179,7 +181,6 @@ class _ChatState extends State<Chat> {
                             color: Color(0xff45e19d),
                             borderRadius: BorderRadius.circular(35),
                             gradient: LinearGradient(colors: [
-                              //
                               Color(0xffe7eef4),
                               Color(0xffeffaf2),
                               Color(0xffeffaf2),
@@ -283,7 +284,6 @@ class Message extends StatelessWidget {
               : <Widget>[
                   Row(
                     children: <Widget>[
-                      SizedBox(width: 5),
                       CircleAvatar(
                         backgroundImage: NetworkImage(
                             "https://www.woolha.com/media/2019/06/buneary.jpg"),
