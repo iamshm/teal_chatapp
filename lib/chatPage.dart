@@ -66,41 +66,47 @@ class _ChatState extends State<Chat> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(35, 0, 10, 0),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://www.woolha.com/media/2019/06/buneary.jpg"),
-                        radius: 35,
-                      ),
-                      Column(
+                      Row(
                         children: <Widget>[
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(10, 0, 80, 0),
-                            child: Text(
-                              'Nilanjana C',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontFamily: 'Montserrat',
-                                fontSize: 20,
-                              ),
-                            ),
+                          CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                "https://www.woolha.com/media/2019/06/buneary.jpg"),
+                            radius: 35,
                           ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(10, 0, 80, 0),
-                            child: Text(
-                              'Verified Nutrionist',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontFamily: 'Montserrat',
-                                fontSize: 12,
+                          Column(
+                            children: <Widget>[
+                              Container(
+                                margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Text(
+                                  'Nilanjana C',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 20,
+                                  ),
+                                ),
                               ),
-                            ),
+                              Container(
+                                margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Text(
+                                  'Verified Nutrionist',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
                       Container(
                         width: 70,
                         height: 20,
+                        margin: const EdgeInsets.only(right: 10),
                         // color: Color(0xff45e19d),
                         decoration: BoxDecoration(
                           color: Color(0xff45e19d),
@@ -168,68 +174,72 @@ class _ChatState extends State<Chat> {
             ),
             //Inputfield
             Container(
-              padding: const EdgeInsets.fromLTRB(20, 4, 10, 10),
+              padding: const EdgeInsets.fromLTRB(10, 5, 5, 10),
               height: 60,
+              width: MediaQuery.of(context).size.width,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
-                    child: Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 0, horizontal: 12),
-                        decoration: BoxDecoration(
-                            color: Color(0xff45e19d),
-                            borderRadius: BorderRadius.circular(35),
-                            gradient: LinearGradient(colors: [
-                              Color(0xffe7eef4),
-                              Color(0xffeffaf2),
-                              Color(0xffeffaf2),
-                              Color(0xffe3fdf9),
-                            ])),
-                        child: TextField(
-                          onSubmitted: (value) => callback(),
-                          decoration: InputDecoration(
-                              hintText: "Write a Message...",
-                              hintStyle: TextStyle(
-                                  color: Colors.black54,
-                                  fontFamily: 'Montserrat',
-                                  fontSize: 14
-                                  // fontStyle: FontStyle.italic,
-                                  ),
-                              border: InputBorder.none),
-                          controller: messageController,
+                      height: 50,
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      padding: const EdgeInsets.fromLTRB(5, 0, 2, 0),
+                      decoration: BoxDecoration(
+                        color: Color(0xff45e19d),
+                        borderRadius: BorderRadius.circular(35),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xffe7eef4),
+                            Color(0xffeffaf2),
+                            Color(0xffeffaf2),
+                            Color(0xffe3fdf9),
+                          ],
                         ),
                       ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                            height: 50,
+                            width: MediaQuery.of(context).size.width * 0.6,
+                            child: TextField(
+                              onSubmitted: (value) => callback(),
+                              decoration: InputDecoration(
+                                  hintText: "Write a Message...",
+                                  hintStyle: TextStyle(
+                                      color: Colors.black54,
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 14
+                                      // fontStyle: FontStyle.italic,
+                                      ),
+                                  border: InputBorder.none),
+                              controller: messageController,
+                            ),
+                          ),
+                          IconButton(
+                              icon: Icon(Icons.insert_emoticon),
+                              iconSize: 20,
+                              color: Colors.black45,
+                              onPressed: () {})
+                        ],
+                      )),
+                  RawMaterialButton(
+                    onPressed: () {},
+                    child: new Icon(
+                      Icons.add,
+                      color: Colors.black,
+                      size: 16.0,
                     ),
+                    shape: new CircleBorder(),
+                    fillColor: Colors.white,
+                    padding: const EdgeInsets.all(1.0),
                   ),
-                  SendButton(
-                    text: "Send",
-                    callback: callback,
-                  )
                 ],
               ),
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class SendButton extends StatelessWidget {
-  final String text;
-  final VoidCallback callback;
-
-  const SendButton({Key key, this.text, this.callback}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      color: Colors.teal,
-      onPressed: callback,
-      icon: Icon(
-        Icons.arrow_forward,
-      ),
-      iconSize: 28,
     );
   }
 }
@@ -261,6 +271,9 @@ class Message extends StatelessWidget {
                         color: Colors.black54,
                         fontFamily: 'Montserrat'),
                   ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.005,
+                  ),
                   Material(
                     color: Color(0xff00777e),
                     borderRadius: BorderRadius.only(
@@ -289,7 +302,7 @@ class Message extends StatelessWidget {
                             "https://www.woolha.com/media/2019/06/buneary.jpg"),
                         radius: 10,
                       ),
-                      SizedBox(width: 10),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                       Text(
                         from,
                         style: TextStyle(
@@ -300,7 +313,7 @@ class Message extends StatelessWidget {
                     ],
                   ),
                   Row(children: <Widget>[
-                    SizedBox(width: 35),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.08),
                     Material(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
