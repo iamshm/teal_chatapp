@@ -199,7 +199,7 @@ class _ChatState extends State<Chat> {
                           borderRadius: BorderRadius.circular(30),
                         ),
                         suffixIcon: IconButton(
-                            icon: Icon(Icons.send), onPressed: () {}),
+                            icon: Icon(Icons.send), onPressed: callback),
                         border: InputBorder.none),
                     controller: messageController,
                   )),
