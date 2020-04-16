@@ -172,7 +172,6 @@ class _ChatState extends State<Chat> {
                 },
               ),
             ),
-            //Inputfield
             Container(
               padding: const EdgeInsets.fromLTRB(10, 5, 5, 10),
               height: 60,
@@ -180,58 +179,41 @@ class _ChatState extends State<Chat> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Container(
-                      height: 50,
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      padding: const EdgeInsets.fromLTRB(5, 0, 2, 0),
-                      decoration: BoxDecoration(
-                        color: Color(0xff45e19d),
-                        borderRadius: BorderRadius.circular(35),
-                        gradient: LinearGradient(
-                          colors: [
-                            Color(0xffe7eef4),
-                            Color(0xffeffaf2),
-                            Color(0xffeffaf2),
-                            Color(0xffe3fdf9),
-                          ],
+                  Expanded(
+                      child: TextField(
+                    onSubmitted: (value) => callback(),
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Color(0xffe7eef4),
+                        hintText: "Write a Message...",
+                        hintStyle: TextStyle(
+                            color: Colors.black54,
+                            fontFamily: 'Montserrat',
+                            fontSize: 14),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xffe7eef4)),
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Container(
-                            height: 50,
-                            width: MediaQuery.of(context).size.width * 0.6,
-                            child: TextField(
-                              onSubmitted: (value) => callback(),
-                              decoration: InputDecoration(
-                                  hintText: "Write a Message...",
-                                  hintStyle: TextStyle(
-                                      color: Colors.black54,
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 14
-                                      // fontStyle: FontStyle.italic,
-                                      ),
-                                  border: InputBorder.none),
-                              controller: messageController,
-                            ),
-                          ),
-                          IconButton(
-                              icon: Icon(Icons.insert_emoticon),
-                              iconSize: 20,
-                              color: Colors.black45,
-                              onPressed: () {})
-                        ],
-                      )),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xffe7eef4)),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        suffixIcon: IconButton(
+                            icon: Icon(Icons.insert_emoticon),
+                            onPressed: () {}),
+                        border: InputBorder.none),
+                    controller: messageController,
+                  )),
                   RawMaterialButton(
                     onPressed: () {},
                     child: new Icon(
                       Icons.add,
-                      color: Colors.black,
-                      size: 16.0,
+                      color: Colors.blue,
+                      size: 20.0,
                     ),
                     shape: new CircleBorder(),
-                    fillColor: Colors.white,
+                    fillColor: Color(0xffe7eef4),
+                    elevation: 0,
                     padding: const EdgeInsets.all(1.0),
                   ),
                 ],
