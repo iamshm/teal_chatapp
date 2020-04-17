@@ -17,7 +17,7 @@ class _ChatState extends State<Chat> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final Firestore _firestore = Firestore.instance;
   bool viewVisible = false;
-
+  // double kheight = MediaQuery.of(context).view
   TextEditingController messageController = TextEditingController();
   ScrollController scrollController = ScrollController();
   void showMore() {
@@ -237,111 +237,106 @@ class _ChatState extends State<Chat> {
             bottom: MediaQuery.of(context).size.width * 0.12,
             left: MediaQuery.of(context).size.width * 0.020,
             child: Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: viewVisible,
-                child: Container(
-                    height: MediaQuery.of(context).size.width * 0.5,
-                    width: MediaQuery.of(context).size.width * 0.96,
-                    decoration: BoxDecoration(
-                      color: Colors.teal[400],
-                      // (0xffa0cef7),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    margin: EdgeInsets.only(top: 50, bottom: 10),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              RawMaterialButton(
-                                onPressed: () {},
-                                child: new Icon(
-                                  Icons.add,
-                                  color: Colors.blue,
-                                  size: 60.0,
-                                ),
-                                shape: new CircleBorder(),
-                                fillColor: Color(0xffe7eef4),
-                                elevation: 0,
-                                padding: const EdgeInsets.all(1.0),
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+              visible: viewVisible,
+              child: Container(
+                  height: MediaQuery.of(context).size.width * 0.5,
+                  width: MediaQuery.of(context).size.width * 0.96,
+                  decoration: BoxDecoration(
+                    color: Colors.teal[400],
+                    // (0xffa0cef7),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  margin: EdgeInsets.only(top: 50, bottom: 10),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            RawMaterialButton(
+                              onPressed: () {},
+                              child: new Icon(
+                                Icons.add,
+                                color: Colors.blue,
+                                size: 60.0,
                               ),
-                              RawMaterialButton(
-                                onPressed: () {},
-                                child: new Icon(
-                                  Icons.add,
-                                  color: Colors.blue,
-                                  size: 60.0,
-                                ),
-                                shape: new CircleBorder(),
-                                fillColor: Color(0xffe7eef4),
-                                elevation: 0,
-                                padding: const EdgeInsets.all(1.0),
+                              shape: new CircleBorder(),
+                              fillColor: Color(0xffe7eef4),
+                              elevation: 0,
+                              padding: const EdgeInsets.all(1.0),
+                            ),
+                            RawMaterialButton(
+                              onPressed: () {},
+                              child: new Icon(
+                                Icons.add,
+                                color: Colors.blue,
+                                size: 60.0,
                               ),
-                              RawMaterialButton(
-                                onPressed: () {},
-                                child: new Icon(
-                                  Icons.add,
-                                  color: Colors.blue,
-                                  size: 60.0,
-                                ),
-                                shape: new CircleBorder(),
-                                fillColor: Color(0xffe7eef4),
-                                elevation: 0,
-                                padding: const EdgeInsets.all(1.0),
+                              shape: new CircleBorder(),
+                              fillColor: Color(0xffe7eef4),
+                              elevation: 0,
+                              padding: const EdgeInsets.all(1.0),
+                            ),
+                            RawMaterialButton(
+                              onPressed: () {},
+                              child: new Icon(
+                                Icons.add,
+                                color: Colors.blue,
+                                size: 60.0,
                               ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              RawMaterialButton(
-                                onPressed: () {},
-                                child: new Icon(
-                                  Icons.add,
-                                  color: Colors.blue,
-                                  size: 60.0,
-                                ),
-                                shape: new CircleBorder(),
-                                fillColor: Color(0xffe7eef4),
-                                elevation: 0,
-                                padding: const EdgeInsets.all(1.0),
+                              shape: new CircleBorder(),
+                              fillColor: Color(0xffe7eef4),
+                              elevation: 0,
+                              padding: const EdgeInsets.all(1.0),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            RawMaterialButton(
+                              onPressed: () {},
+                              child: new Icon(
+                                Icons.add,
+                                color: Colors.blue,
+                                size: 60.0,
                               ),
-                              RawMaterialButton(
-                                onPressed: () {},
-                                child: new Icon(
-                                  Icons.add,
-                                  color: Colors.blue,
-                                  size: 60.0,
-                                ),
-                                shape: new CircleBorder(),
-                                fillColor: Color(0xffe7eef4),
-                                elevation: 0,
-                                padding: const EdgeInsets.all(1.0),
+                              shape: new CircleBorder(),
+                              fillColor: Color(0xffe7eef4),
+                              elevation: 0,
+                              padding: const EdgeInsets.all(1.0),
+                            ),
+                            RawMaterialButton(
+                              onPressed: () {},
+                              child: new Icon(
+                                Icons.add,
+                                color: Colors.blue,
+                                size: 60.0,
                               ),
-                              RawMaterialButton(
-                                onPressed: () {},
-                                child: new Icon(
-                                  Icons.add,
-                                  color: Colors.blue,
-                                  size: 60.0,
-                                ),
-                                shape: new CircleBorder(),
-                                fillColor: Color(0xffe7eef4),
-                                elevation: 0,
-                                padding: const EdgeInsets.all(1.0),
+                              shape: new CircleBorder(),
+                              fillColor: Color(0xffe7eef4),
+                              elevation: 0,
+                              padding: const EdgeInsets.all(1.0),
+                            ),
+                            RawMaterialButton(
+                              onPressed: () {},
+                              child: new Icon(
+                                Icons.add,
+                                color: Colors.blue,
+                                size: 60.0,
                               ),
-                            ],
-                          )
-                        ])
-                    //  Center(
-                    //   child: Text('Show Hide Text View Widget in Flutter',
-                    //       textAlign: TextAlign.center,
-                    //       style: TextStyle(color: Colors.white, fontSize: 23)),
-                    // ),
-                    )),
+                              shape: new CircleBorder(),
+                              fillColor: Color(0xffe7eef4),
+                              elevation: 0,
+                              padding: const EdgeInsets.all(1.0),
+                            ),
+                          ],
+                        )
+                      ])),
+            ),
           ),
         ]),
       ),
