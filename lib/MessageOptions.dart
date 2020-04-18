@@ -21,16 +21,13 @@ class _MessageOptionsState extends State<MessageOptions> {
   Widget build(BuildContext context) {
     Future getImage() async {
       var image = await ImagePicker.pickImage(source: ImageSource.gallery);
-      String fileName = basename(_image.path);
+      _image = image;
+
+      String fileName = basename(image.path);
       StorageReference firebaseStorageRef =
           FirebaseStorage.instance.ref().child(fileName);
-      StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
+      StorageUploadTask uploadTask = firebaseStorageRef.putFile(image);
       StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
-
-      setState(() {
-        _image = image;
-        print('Image Path $_image');
-      });
     }
     // Future uploadPic(BuildContext context) async{
     //   String fileName = basename(_image.path);
