@@ -20,16 +20,6 @@ class Message extends StatelessWidget {
               me ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: me
               ? <Widget>[
-                  Text(
-                    from,
-                    style: TextStyle(
-                        fontSize: 10,
-                        color: Colors.black54,
-                        fontFamily: 'Montserrat'),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.005,
-                  ),
                   Material(
                     color: Color(0xff00777e),
                     borderRadius: BorderRadius.only(
@@ -58,38 +48,30 @@ class Message extends StatelessWidget {
                             "https://www.woolha.com/media/2019/06/buneary.jpg"),
                         radius: 10,
                       ),
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                      Text(
-                        from,
-                        style: TextStyle(
-                            fontSize: 10,
-                            color: Colors.black54,
-                            fontFamily: 'Montserrat'),
+                      SizedBox(
+                        width: 8.0,
+                      ),
+                      Material(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.zero,
+                          topRight: Radius.circular(round),
+                          bottomLeft: Radius.circular(round),
+                          bottomRight: Radius.circular(round),
+                        ),
+                        child: Container(
+                          constraints: BoxConstraints(maxWidth: 300),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 15.0),
+                          child: Text(
+                            text,
+                            style: TextStyle(
+                                color: Colors.black, fontFamily: 'Montserrat'),
+                          ),
+                        ),
                       ),
                     ],
                   ),
-                  Row(children: <Widget>[
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.08),
-                    Material(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.zero,
-                        topRight: Radius.circular(round),
-                        bottomLeft: Radius.circular(round),
-                        bottomRight: Radius.circular(round),
-                      ),
-                      child: Container(
-                        constraints: BoxConstraints(maxWidth: 300),
-                        padding: EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 15.0),
-                        child: Text(
-                          text,
-                          style: TextStyle(
-                              color: Colors.black, fontFamily: 'Montserrat'),
-                        ),
-                      ),
-                    )
-                  ]),
                 ],
         ),
       ),

@@ -56,6 +56,7 @@ class CustomButton extends StatelessWidget {
   final String text;
 
   const CustomButton({Key key, this.callback, this.text}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -77,6 +78,7 @@ class CustomButton extends StatelessWidget {
 
 class Registration extends StatefulWidget {
   static const String id = "REGISTRATION";
+
   @override
   _RegistrationState createState() => _RegistrationState();
 }
@@ -161,6 +163,7 @@ class _RegistrationState extends State<Registration> {
 
 class Login extends StatefulWidget {
   static const String id = "LOGIN";
+
   @override
   _LoginState createState() => _LoginState();
 }
@@ -173,8 +176,8 @@ class _LoginState extends State<Login> {
 
   Future<void> loginUser() async {
     FirebaseUser user = (await _auth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
+      email: "test@test.com",
+      password: "testtest",
     ))
         .user;
 
