@@ -17,27 +17,29 @@ class MessageOptions extends StatefulWidget {
 
 class _MessageOptionsState extends State<MessageOptions> {
   File _image;
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      _image = image;
+    });
+
+    uploadPic();
+  }
+
+  Future uploadPic() async {
+    final FirebaseStorage _storage =
+        FirebaseStorage(storageBucket: 'gs://chatapp-3ae6f.appspot.com');
+    String fileName = basename(_image.path);
+    StorageUploadTask _uploadtask =
+        _storage.ref().child(fileName).putFile(_image);
+    // final StorageReference firebaseStorageRef =
+    //     FirebaseStorage.instance.ref().child(fileName);
+    // StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
+    // StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+  }
+
   @override
   Widget build(BuildContext context) {
-    Future getImage() async {
-      var image = await ImagePicker.pickImage(source: ImageSource.gallery);
-      _image = image;
-
-      String fileName = basename(image.path);
-      StorageReference firebaseStorageRef =
-          FirebaseStorage.instance.ref().child(fileName);
-      StorageUploadTask uploadTask = firebaseStorageRef.putFile(image);
-      StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
-    }
-    // Future uploadPic(BuildContext context) async{
-    //   String fileName = basename(_image.path);
-    //   StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(fileName);
-    //   StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
-    //   StorageTaskSnapshot taskSnapshot= await uploadTask.onComplete;
-    // }
-
-    ;
-
     return Container(
       height: widget.height,
       width: MediaQuery.of(context).size.width,
