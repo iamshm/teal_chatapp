@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:path/path.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,26 +18,34 @@ class MessageOptions extends StatefulWidget {
 
 class _MessageOptionsState extends State<MessageOptions> {
   File _image;
+
   Future getImage() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    var image = await ImagePicker.pickImage(
+        source: ImageSource.gallery, imageQuality: 85);
     setState(() {
       _image = image;
     });
-
-    uploadPic();
-  }
-
-  Future uploadPic() async {
-    final FirebaseStorage _storage =
-        FirebaseStorage(storageBucket: 'gs://chatapp-3ae6f.appspot.com');
-    String fileName = basename(_image.path);
-    StorageUploadTask _uploadtask =
-        _storage.ref().child(fileName).putFile(_image);
-    // final StorageReference firebaseStorageRef =
-    //     FirebaseStorage.instance.ref().child(fileName);
-    // StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
+    String fileName = 'images/${basename(_image.path)}';
+    final StorageReference firebaseStorageRef =
+        FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
     // StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
   }
+
+  Future getCamera() async {
+    var camImage = await ImagePicker.pickImage(
+        source: ImageSource.camera, imageQuality: 85);
+    setState(() {
+      _image = camImage;
+    });
+    String fileName = 'images/${DateTime.now()}.png';
+    final StorageReference firebaseStorageRef =
+        FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
+    //  StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+  }
+
+  Future uploadPic() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +62,7 @@ class _MessageOptionsState extends State<MessageOptions> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              MessageOptionButton(icon: Icons.camera_alt, callback: getImage),
+              MessageOptionButton(icon: Icons.camera_alt, callback: getCamera),
               MessageOptionButton(icon: Icons.photo, callback: getImage),
               MessageOptionButton(icon: Icons.contacts, callback: () {}),
             ],

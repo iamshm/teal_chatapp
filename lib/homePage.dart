@@ -195,7 +195,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tensor Chat"),
+        title: Text("Teal Chat"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
