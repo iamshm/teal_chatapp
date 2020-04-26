@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:path/path.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -18,18 +17,28 @@ class MessageOptions extends StatefulWidget {
 
 class _MessageOptionsState extends State<MessageOptions> {
   File _image;
+  String imageUrl;
 
   Future getImage() async {
     var image = await ImagePicker.pickImage(
-        source: ImageSource.gallery, imageQuality: 85);
+        source: ImageSource.gallery, imageQuality: 70);
     setState(() {
       _image = image;
     });
+
     String fileName = 'images/${basename(_image.path)}';
     final StorageReference firebaseStorageRef =
         FirebaseStorage.instance.ref().child(fileName);
     StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
-    // StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+    StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
+    storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
+      imageUrl = downloadUrl;
+      setState(() {
+        // callback(imageUrl,1);
+      });
+    }, onError: (err) {
+      setState(() {});
+    });
   }
 
   Future getCamera() async {
@@ -44,8 +53,6 @@ class _MessageOptionsState extends State<MessageOptions> {
     StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
     //  StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
   }
-
-  Future uploadPic() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -62,9 +69,10 @@ class _MessageOptionsState extends State<MessageOptions> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              MessageOptionButton(icon: Icons.camera_alt, callback: getCamera),
-              MessageOptionButton(icon: Icons.photo, callback: getImage),
-              MessageOptionButton(icon: Icons.contacts, callback: () {}),
+              MessageOptionButton(
+                  icon: Icons.camera_alt, callBackOptions: getCamera),
+              MessageOptionButton(icon: Icons.photo, callBackOptions: getImage),
+              MessageOptionButton(icon: Icons.contacts, callBackOptions: () {}),
             ],
           ),
           Row(
@@ -72,15 +80,15 @@ class _MessageOptionsState extends State<MessageOptions> {
             children: <Widget>[
               MessageOptionButton(
                 icon: Icons.file_upload,
-                callback: () {},
+                callBackOptions: () {},
               ),
               MessageOptionButton(
                 icon: Icons.music_note,
-                callback: () {},
+                callBackOptions: () {},
               ),
               MessageOptionButton(
                 icon: Icons.location_on,
-                callback: () {},
+                callBackOptions: () {},
               )
             ],
           )
@@ -94,14 +102,14 @@ class _MessageOptionsState extends State<MessageOptions> {
 
 class MessageOptionButton extends StatelessWidget {
   final IconData icon;
-  final Function callback;
-  const MessageOptionButton({Key key, this.icon, this.callback})
+  final Function callBackOptions;
+  const MessageOptionButton({Key key, this.icon, this.callBackOptions})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: callback,
+      onPressed: callBackOptions,
       child: new Icon(
         icon,
         color: Colors.blue,

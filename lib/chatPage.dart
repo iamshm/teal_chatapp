@@ -198,6 +198,7 @@ class _ChatState extends State<Chat> {
 
                       return ListView(
                         controller: scrollController,
+                        // reverse: true,
                         children: <Widget>[
                           ...messages,
                         ],
