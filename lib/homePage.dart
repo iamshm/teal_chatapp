@@ -1,3 +1,4 @@
+import 'package:chat_app/calendar.dart';
 import 'package:chat_app/chatPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -43,6 +44,12 @@ class MyHomePage extends StatelessWidget {
             text: "Register",
             callback: () {
               Navigator.of(context).pushNamed(Registration.id);
+            },
+          ),
+          CustomButton(
+            text: "Calendar",
+            callback: () {
+              Navigator.of(context).pushNamed(Calendar.id);
             },
           )
         ],

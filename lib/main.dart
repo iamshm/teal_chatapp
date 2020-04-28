@@ -1,3 +1,4 @@
+import 'package:chat_app/calendar.dart';
 import 'package:chat_app/chatPage.dart';
 import 'package:chat_app/homePage.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         Registration.id: (context) => Registration(),
         Login.id: (context) => Login(),
         Chat.id: (context) => Chat(),
+        Calendar.id: (context) => Calendar(),
       },
     );
   }

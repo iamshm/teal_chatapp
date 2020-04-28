@@ -30,6 +30,10 @@ dependencies:
   cloud_firestore:
   image_picker: ^0.6.4
   flutter_image_compress: 0.6.5+1
+  table_calendar: ^2.2.3
+  shared_preferences:
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
