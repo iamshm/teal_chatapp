@@ -194,8 +194,8 @@ class _CalendarState extends State<Calendar> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
+                // Drag bar
                 Container(
-                  padding: EdgeInsets.only(top: 10),
                   alignment: Alignment.center,
                   width: MediaQuery.of(context).size.height,
                   height: MediaQuery.of(context).size.height * 0.051,
@@ -213,15 +213,596 @@ class _CalendarState extends State<Calendar> {
                       ),
                     ],
                   ),
-                  child: Text(
-                    "Your Events",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'Montserrat',
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.1,
+                    height: MediaQuery.of(context).size.height * 0.005,
+                    decoration: BoxDecoration(
+                        color: Colors.black26,
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
                   ),
                 ),
+                //Saturday date
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Text(
+                                    "Saturday",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                              Padding(padding: EdgeInsets.all(5)),
+                              Column(
+                                children: <Widget>[
+                                  Text(
+                                    "10 April 2018",
+                                    style: TextStyle(
+                                        color: Colors.black26,
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w600),
+                                  )
+                                ],
+                              ),
+                            ])
+                      ],
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Text(
+                                    "1000\$",
+                                    style: TextStyle(
+                                        color: Colors.green[300],
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600),
+                                  )
+                                ],
+                              ),
+                              Padding(padding: EdgeInsets.all(5)),
+                              Column(
+                                children: <Widget>[
+                                  Text(
+                                    "500\$",
+                                    style: TextStyle(
+                                        color: Colors.red[200],
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600),
+                                  )
+                                ],
+                              ),
+                            ])
+                      ],
+                    ),
+                  ],
+                ),
+                //event list 1
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    //event time
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: MediaQuery.of(context).size.width * 0.035,
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        width: MediaQuery.of(context).size.width * 0.20,
+                        decoration: BoxDecoration(
+                          color: Color(0xffedeefc),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        "https://www.woolha.com/media/2019/06/buneary.jpg"),
+                                    radius: 8,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "10:00 am",
+                                    style: TextStyle(
+                                        color: Color(0xff656773),
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "02:00 pm",
+                                    style: TextStyle(
+                                        color: Color(0xff656773),
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                    ), //event description
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: MediaQuery.of(context).size.width * 0.035,
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        width: MediaQuery.of(context).size.width * 0.65,
+                        decoration: BoxDecoration(
+                          color: Colors.blueAccent,
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(5.0, 5.0),
+                              blurRadius: 15.0,
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "Guns N' Roses",
+                                    style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 20,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  Text(
+                                    "Concert",
+                                    style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 18,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        "https://www.woolha.com/media/2019/06/buneary.jpg"),
+                                    radius: 20,
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                    ),
+                  ],
+                ),
+                // event list 2
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    //event time
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: MediaQuery.of(context).size.width * 0.035,
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        width: MediaQuery.of(context).size.width * 0.20,
+                        decoration: BoxDecoration(
+                          color: Color(0xffedeefc),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        "https://www.woolha.com/media/2019/06/buneary.jpg"),
+                                    radius: 8,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "10:00 am",
+                                    style: TextStyle(
+                                        color: Color(0xff656773),
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "02:00 pm",
+                                    style: TextStyle(
+                                        color: Color(0xff656773),
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                    ), //event description rolling stones
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: MediaQuery.of(context).size.width * 0.035,
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        width: MediaQuery.of(context).size.width * 0.65,
+                        decoration: BoxDecoration(
+                          color: Color(0xfffa836d),
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(5.0, 5.0),
+                              blurRadius: 15.0,
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "The Rolling Stones",
+                                    style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 20,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  Text(
+                                    "Concert",
+                                    style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 18,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        "https://www.woolha.com/media/2019/06/buneary.jpg"),
+                                    radius: 20,
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                    ),
+                  ],
+                ),
+                //event list 3
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    //event time
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: MediaQuery.of(context).size.width * 0.035,
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        width: MediaQuery.of(context).size.width * 0.20,
+                        decoration: BoxDecoration(
+                          color: Color(0xffedeefc),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        "https://www.woolha.com/media/2019/06/buneary.jpg"),
+                                    radius: 8,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "10:00 am",
+                                    style: TextStyle(
+                                        color: Color(0xff656773),
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "02:00 pm",
+                                    style: TextStyle(
+                                        color: Color(0xff656773),
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                    ),
+                    //event description rolling stones
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: MediaQuery.of(context).size.width * 0.035,
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        width: MediaQuery.of(context).size.width * 0.65,
+                        decoration: BoxDecoration(
+                          color: Color(0xffeb4886),
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(5.0, 5.0),
+                              blurRadius: 15.0,
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "Linkin Park",
+                                    style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 20,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  Text(
+                                    "Concert",
+                                    style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 18,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        "https://www.woolha.com/media/2019/06/buneary.jpg"),
+                                    radius: 20,
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                    ),
+                  ],
+                ),
+                //wednesday date
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Padding(padding: EdgeInsets.all(15)),
+                              Column(
+                                children: <Widget>[
+                                  Text(
+                                    "Wednesday",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                              Padding(padding: EdgeInsets.all(5)),
+                              Column(
+                                children: <Widget>[
+                                  Text(
+                                    "14 April 2018",
+                                    style: TextStyle(
+                                        color: Colors.black26,
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w600),
+                                  )
+                                ],
+                              ),
+                            ])
+                      ],
+                    ),
+                  ],
+                ),
+//event list 4
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    //event time
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: MediaQuery.of(context).size.width * 0.035,
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        width: MediaQuery.of(context).size.width * 0.20,
+                        decoration: BoxDecoration(
+                          color: Color(0xffedeefc),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        "https://www.woolha.com/media/2019/06/buneary.jpg"),
+                                    radius: 8,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "10:00 am",
+                                    style: TextStyle(
+                                        color: Color(0xff656773),
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "02:00 pm",
+                                    style: TextStyle(
+                                        color: Color(0xff656773),
+                                        fontSize: 14,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                    ), //event description
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: MediaQuery.of(context).size.width * 0.035,
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        width: MediaQuery.of(context).size.width * 0.65,
+                        decoration: BoxDecoration(
+                          color: Color(0xff52577a),
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(5.0, 5.0),
+                              blurRadius: 15.0,
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "The Chainsmokers",
+                                    style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 20,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  Text(
+                                    "Concert",
+                                    style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 18,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        "https://www.woolha.com/media/2019/06/buneary.jpg"),
+                                    radius: 20,
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                    ),
+                  ],
+                ),
+
                 ..._selectedEvents.map(
                   (event) => ListTile(
                     contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
