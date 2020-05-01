@@ -37,24 +37,28 @@ class MyHomePage extends StatelessWidget {
           ),
           CustomButton(
             text: "Log In",
+            buttoncolor: Colors.blue,
             callback: () {
               Navigator.of(context).pushNamed(Login.id);
             },
           ),
           CustomButton(
             text: "Register",
+            buttoncolor: Colors.green,
             callback: () {
               Navigator.of(context).pushNamed(Registration.id);
             },
           ),
           CustomButton(
             text: "Calendar",
+            buttoncolor: Colors.red[400],
             callback: () {
               Navigator.of(context).pushNamed(Calendar.id);
             },
           ),
           CustomButton(
             text: "Daily Targets",
+            buttoncolor: Colors.yellow,
             callback: () {
               Navigator.of(context).pushNamed(DailyTarget.id);
             },
@@ -68,16 +72,17 @@ class MyHomePage extends StatelessWidget {
 class CustomButton extends StatelessWidget {
   final VoidCallback callback;
   final String text;
-  // final Color buttoncolor;
+  final Color buttoncolor;
 
-  const CustomButton({Key key, this.callback, this.text}) : super(key: key);
+  const CustomButton({Key key, this.callback, this.text, this.buttoncolor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8.0),
       child: Material(
-        color: Colors.blueGrey,
+        color: buttoncolor,
         elevation: 6.0,
         borderRadius: BorderRadius.circular(30.0),
         child: MaterialButton(
