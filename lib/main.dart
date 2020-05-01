@@ -1,7 +1,8 @@
-import 'package:chat_app/calendar.dart';
-import 'package:chat_app/chatPage.dart';
+import 'package:chat_app/calendar/calendar.dart';
 import 'package:chat_app/homePage.dart';
+import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:flutter/material.dart';
+import 'chat/chatPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         Login.id: (context) => Login(),
         Chat.id: (context) => Chat(),
         Calendar.id: (context) => Calendar(),
+        DailyTarget.id: (context) => DailyTarget(),
       },
     );
   }

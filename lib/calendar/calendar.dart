@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:chat_app/calendarEvents.dart';
+import 'package:chat_app/calendar/calendarEvents.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:table_calendar/table_calendar.dart';

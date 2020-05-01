@@ -1,5 +1,6 @@
-import 'package:chat_app/calendar.dart';
-import 'package:chat_app/chatPage.dart';
+import 'package:chat_app/calendar/calendar.dart';
+import 'package:chat_app/chat/chatPage.dart';
+import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -51,6 +52,12 @@ class MyHomePage extends StatelessWidget {
             callback: () {
               Navigator.of(context).pushNamed(Calendar.id);
             },
+          ),
+          CustomButton(
+            text: "Daily Targets",
+            callback: () {
+              Navigator.of(context).pushNamed(DailyTarget.id);
+            },
           )
         ],
       ),
@@ -61,6 +68,7 @@ class MyHomePage extends StatelessWidget {
 class CustomButton extends StatelessWidget {
   final VoidCallback callback;
   final String text;
+  // final Color buttoncolor;
 
   const CustomButton({Key key, this.callback, this.text}) : super(key: key);
 
