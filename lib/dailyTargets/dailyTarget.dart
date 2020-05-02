@@ -17,10 +17,25 @@ class DailyTarget extends StatelessWidget {
           children: <Widget>[
             SafeArea(
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.2,
                 width: MediaQuery.of(context).size.width,
-                color: Colors.blue,
+                color: Colors.white,
+                child: Image.asset(
+                  "assets/images/dart.png",
+                  height: MediaQuery.of(context).size.height * 0.2,
+                ),
               ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.height * 0.06,
+                  vertical: MediaQuery.of(context).size.height * 0.01),
+              child: Text("Hi Arshad, Let's go through your Daily Targets",
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 26,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w700,
+                  )),
             ),
             Target1(),
             Target2(),
