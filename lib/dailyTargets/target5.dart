@@ -70,7 +70,7 @@ class Target5 extends StatelessWidget {
                         Text(
                           "Record activites",
                           style: TextStyle(
-                              // decoration: TextDecoration.underline,
+                              decoration: TextDecoration.underline,
                               color: Colors.black,
                               fontSize: 18,
                               fontFamily: 'Montserrat',

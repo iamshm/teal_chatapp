@@ -70,7 +70,7 @@ class Target4 extends StatelessWidget {
                         Text(
                           "Update glasses",
                           style: TextStyle(
-                              // decoration: TextDecoration.underline,
+                              decoration: TextDecoration.underline,
                               color: Colors.black,
                               fontSize: 18,
                               fontFamily: 'Montserrat',

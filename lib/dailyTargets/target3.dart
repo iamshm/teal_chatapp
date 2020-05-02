@@ -70,7 +70,7 @@ class Target3 extends StatelessWidget {
                         Text(
                           "View Recommendations",
                           style: TextStyle(
-                              // decoration: TextDecoration.underline,
+                              decoration: TextDecoration.underline,
                               color: Colors.black,
                               fontSize: 18,
                               fontFamily: 'Montserrat',

@@ -15,7 +15,7 @@ class Target2 extends StatelessWidget {
             left: MediaQuery.of(context).size.width * 0.05,
           ),
           child: Container(
-              height: MediaQuery.of(context).size.height * 0.18,
+              height: MediaQuery.of(context).size.height * 0.16,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -40,6 +40,8 @@ class Target2 extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                        height: (MediaQuery.of(context).size.height * 0.025)),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,10 +73,10 @@ class Target2 extends StatelessWidget {
                           "",
                           style: TextStyle(
                               decoration: TextDecoration.underline,
-                              color: Colors.green[500],
-                              fontSize: 18,
+                              color: Colors.black,
+                              fontSize: 1,
                               fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w700),
+                              fontWeight: FontWeight.w500),
                         ),
                         IconButton(
                             icon: Icon(
@@ -90,7 +92,7 @@ class Target2 extends StatelessWidget {
         ),
         //count button
         Positioned(
-          top: MediaQuery.of(context).size.height * 0.075,
+          top: MediaQuery.of(context).size.height * 0.066,
           child: Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.width * 0.1,
