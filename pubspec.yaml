@@ -32,6 +32,7 @@ dependencies:
   flutter_image_compress: 0.6.5+1
   table_calendar: ^2.2.3
   shared_preferences:
+  font_awesome_flutter:
 
 
 dev_dependencies:
