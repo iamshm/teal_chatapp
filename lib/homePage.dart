@@ -1,6 +1,7 @@
 import 'package:chat_app/calendar/calendar.dart';
 import 'package:chat_app/chat/chatPage.dart';
 import 'package:chat_app/dailyTargets/dailyTarget.dart';
+import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               Text(
-                "Teal Chat",
+                "Teal WellNess",
                 style: TextStyle(
                   fontSize: 40.0,
                 ),
@@ -61,6 +62,13 @@ class MyHomePage extends StatelessWidget {
             buttoncolor: Colors.yellow,
             callback: () {
               Navigator.of(context).pushNamed(DailyTarget.id);
+            },
+          ),
+          CustomButton(
+            text: "Health Profile",
+            buttoncolor: Colors.orange,
+            callback: () {
+              Navigator.of(context).pushNamed(HealthProfile.id);
             },
           )
         ],
