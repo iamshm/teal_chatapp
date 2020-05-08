@@ -3,6 +3,7 @@ import 'package:chat_app/calendar/calendar.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:chat_app/homePage.dart';
 import 'package:chat_app/dailyTargets/dailyTarget.dart';
+import 'package:chat_app/prepareFast/prepareFast.dart';
 import 'chat/chatPage.dart';
 
 import 'package:flutter/material.dart';
@@ -26,8 +27,7 @@ class MyApp extends StatelessWidget {
         DailyTarget.id: (context) => DailyTarget(),
         HealthProfile.id: (context) => HealthProfile(),
         BottomNavBar.id: (context) => BottomNavBar(),
-       
-        
+        PrepareFast.id: (context) => PrepareFast(),
       },
     );
   }

@@ -3,6 +3,7 @@ import 'package:chat_app/calendar/calendar.dart';
 import 'package:chat_app/chat/chatPage.dart';
 import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
+import 'package:chat_app/prepareFast/prepareFast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,6 @@ class MyHomePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-             
               Text(
                 "Teal WellNess",
                 style: TextStyle(
@@ -65,16 +65,21 @@ class MyHomePage extends StatelessWidget {
             callback: () {
               Navigator.of(context).pushNamed(HealthProfile.id);
             },
-          )
-          ,
+          ),
           CustomButton(
-            text: "Bottom NavBar ",
-            buttoncolor: Colors.pink,
+            text: "Fast NavBar ",
+            buttoncolor: Colors.pink[200],
             callback: () {
               Navigator.of(context).pushNamed(BottomNavBar.id);
             },
-          )
-          ,
+          ),
+          CustomButton(
+            text: "Prepare Fast ",
+            buttoncolor: Colors.blue[200],
+            callback: () {
+              Navigator.of(context).pushNamed(PrepareFast.id);
+            },
+          ),
         ],
       ),
     );

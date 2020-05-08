@@ -15,7 +15,7 @@ class Target3 extends StatelessWidget {
             left: MediaQuery.of(context).size.width * 0.05,
           ),
           child: Container(
-              height: MediaQuery.of(context).size.height * 0.18,
+              height: MediaQuery.of(context).size.height * 0.19,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 color: Colors.white,

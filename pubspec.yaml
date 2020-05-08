@@ -33,6 +33,7 @@ dependencies:
   table_calendar: ^2.2.3
   shared_preferences:
   font_awesome_flutter:
+  dotted_border: 
 
 
 dev_dependencies:
