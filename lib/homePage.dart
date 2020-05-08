@@ -1,3 +1,4 @@
+import 'package:chat_app/BottomTab/bottomNavBar.dart';
 import 'package:chat_app/calendar/calendar.dart';
 import 'package:chat_app/chat/chatPage.dart';
 import 'package:chat_app/dailyTargets/dailyTarget.dart';
@@ -18,13 +19,7 @@ class MyHomePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Hero(
-                tag: 'logo',
-                child: Container(
-                  width: 100.0,
-                  child: Image.asset("assets/images/logo.png"),
-                ),
-              ),
+             
               Text(
                 "Teal WellNess",
                 style: TextStyle(
@@ -34,7 +29,7 @@ class MyHomePage extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 50.0,
+            height: 20.0,
           ),
           CustomButton(
             text: "Log In",
@@ -71,6 +66,15 @@ class MyHomePage extends StatelessWidget {
               Navigator.of(context).pushNamed(HealthProfile.id);
             },
           )
+          ,
+          CustomButton(
+            text: "Bottom NavBar ",
+            buttoncolor: Colors.pink,
+            callback: () {
+              Navigator.of(context).pushNamed(BottomNavBar.id);
+            },
+          )
+          ,
         ],
       ),
     );

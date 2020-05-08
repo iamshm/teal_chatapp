@@ -5,6 +5,7 @@ class HealthFactor extends StatelessWidget {
   final String healthFactorTitle;
   final String valueOfFactor;
   final String unitOfFactor;
+ 
 
   const HealthFactor(
       {Key key,
@@ -15,6 +16,7 @@ class HealthFactor extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
+    
     return Container(
       width: MediaQuery.of(context).size.height * 0.2,
       height: MediaQuery.of(context).size.height * 0.09,

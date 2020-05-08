@@ -390,7 +390,7 @@ class _CalendarState extends State<Calendar> {
                         color: Colors.black45,
                         iconSize: 24,
                         onPressed: () {}),
-                    hoverColor: Colors.blue,
+                    // hoverColor: Colors.blue,
                   ),
                 ),
               ],

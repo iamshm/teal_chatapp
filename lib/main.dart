@@ -1,3 +1,4 @@
+import 'package:chat_app/BottomTab/bottomNavBar.dart';
 import 'package:chat_app/calendar/calendar.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:chat_app/homePage.dart';
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
         Calendar.id: (context) => Calendar(),
         DailyTarget.id: (context) => DailyTarget(),
         HealthProfile.id: (context) => HealthProfile(),
+        BottomNavBar.id: (context) => BottomNavBar(),
+       
+        
       },
     );
   }
