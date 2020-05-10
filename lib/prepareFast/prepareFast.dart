@@ -1,5 +1,7 @@
 import 'package:chat_app/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:dotted_border/dotted_border.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PrepareFast extends StatefulWidget {
   static const String id = "PREPAREFASTS";
@@ -20,7 +22,9 @@ class _PrepareFastState extends State<PrepareFast> {
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.bold),
         ),
+        automaticallyImplyLeading: true,
         centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 10,
       ),
@@ -31,9 +35,22 @@ class _PrepareFastState extends State<PrepareFast> {
             height: MediaQuery.of(context).size.height * 0.05,
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.2,
-            width: MediaQuery.of(context).size.width,
-            color: Colors.red,
+            height: MediaQuery.of(context).size.height * 0.15,
+            width: MediaQuery.of(context).size.height * 0.15,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+              border: Border.all(width: 10, color: const Color(0xFFb4a8c3)),
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              "13:58",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.bold),
+            ),
           ),
           Container(
               alignment: Alignment.center,
@@ -71,11 +88,100 @@ class _PrepareFastState extends State<PrepareFast> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.035,
           ),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.2,
-            width: MediaQuery.of(context).size.width,
-            color: Colors.red,
-          ),
+          DottedBorder(
+            borderType: BorderType.RRect,
+            radius: Radius.circular(12),
+            padding: EdgeInsets.symmetric(vertical: 6, horizontal: 20),
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.25,
+              width: MediaQuery.of(context).size.width * 0.7,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Text(
+                    "TIPS TO PREPARE FOR THE FAST",
+                    style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        FontAwesomeIcons.tint,
+                        color: Colors.blue,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.03,
+                      ),
+                      Flexible(
+                        child: Text(
+                          "Hydrate with water before, during and after the fast.",
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.034,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w700),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        FontAwesomeIcons.pizzaSlice,
+                        color: Colors.amber,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.03,
+                      ),
+                      Flexible(
+                        child: Text(
+                          "Avoid Processes and Unhealthy foods before and after fasting.",
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.034,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w700),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        FontAwesomeIcons.appleAlt,
+                        color: Colors.red,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.03,
+                      ),
+                      Flexible(
+                        child: Text(
+                          "Prepare healthy, fresh foods for your first meal after the fast.",
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.034,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w700),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
