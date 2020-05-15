@@ -39,8 +39,8 @@ class _NotchBottomState extends State<NotchBottom> {
             bucket: bucket,
           ),
           Positioned(
-            left: MediaQuery.of(context).size.width * 0.25,
-            bottom: -MediaQuery.of(context).size.width * 0.28,
+            left: MediaQuery.of(context).size.width * 0.3,
+            bottom: -MediaQuery.of(context).size.width * 0.2,
             child: Visibility(
               visible: popUp,
               child: Container(
@@ -49,25 +49,51 @@ class _NotchBottomState extends State<NotchBottom> {
                     ClipPath(
                       clipper: CustomHalfCircleClipper(),
                       child: Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
-                        width: MediaQuery.of(context).size.height * 0.25,
-                        decoration: new BoxDecoration(
-                          color: Colors.blue[200],
-                          borderRadius: BorderRadius.circular(
-                            MediaQuery.of(context).size.height * 0.125,
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          width: MediaQuery.of(context).size.height * 0.2,
+                          decoration: new BoxDecoration(
+                            color: Colors.grey[100],
+                            borderRadius: BorderRadius.circular(
+                              MediaQuery.of(context).size.height * 0.1,
+                            ),
                           ),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Icon(
-                              Icons.settings,
-                              color: Colors.red,
-                            )
-                          ],
-                        ),
-                      ),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                // bottom: 0,
+                                left: MediaQuery.of(context).size.width * 0.15,
+                                child: IconButton(
+                                  icon: Icon(
+                                    FontAwesomeIcons.tape,
+                                    size: 18,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              ),
+                              Positioned(
+                                top: MediaQuery.of(context).size.height * 0.05,
+                                left: MediaQuery.of(context).size.width * 0.02,
+                                child: IconButton(
+                                  icon: Icon(
+                                    FontAwesomeIcons.glassWhiskey,
+                                    size: 18,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              ),
+                              Positioned(
+                                top: MediaQuery.of(context).size.height * 0.05,
+                                left: MediaQuery.of(context).size.width * 0.28,
+                                child: IconButton(
+                                  icon: Icon(
+                                    FontAwesomeIcons.pencilAlt,
+                                    size: 18,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ],
+                          )),
                     )
                   ],
                 ),
@@ -107,12 +133,15 @@ class _NotchBottomState extends State<NotchBottom> {
                         Icon(
                           FontAwesomeIcons.dumbbell,
                           color: currentTab == 0 ? Colors.blue : Colors.grey,
+                          size: 20,
                         ),
                         Text(
                           'Workouts',
                           style: TextStyle(
-                            color: currentTab == 0 ? Colors.blue : Colors.grey,
-                          ),
+                              color:
+                                  currentTab == 0 ? Colors.blue : Colors.grey,
+                              fontFamily: 'Montserrat',
+                              fontSize: 12),
                         ),
                       ],
                     ),
@@ -132,12 +161,15 @@ class _NotchBottomState extends State<NotchBottom> {
                         Icon(
                           FontAwesomeIcons.utensilSpoon,
                           color: currentTab == 1 ? Colors.blue : Colors.grey,
+                          size: 20,
                         ),
                         Text(
                           'Nutrition',
                           style: TextStyle(
-                            color: currentTab == 1 ? Colors.blue : Colors.grey,
-                          ),
+                              color:
+                                  currentTab == 1 ? Colors.blue : Colors.grey,
+                              fontFamily: 'Montserrat',
+                              fontSize: 12),
                         ),
                       ],
                     ),
@@ -165,12 +197,15 @@ class _NotchBottomState extends State<NotchBottom> {
                         Icon(
                           FontAwesomeIcons.home,
                           color: currentTab == 2 ? Colors.blue : Colors.grey,
+                          size: 20,
                         ),
                         Text(
                           'Dashboard',
                           style: TextStyle(
-                            color: currentTab == 2 ? Colors.blue : Colors.grey,
-                          ),
+                              color:
+                                  currentTab == 2 ? Colors.blue : Colors.grey,
+                              fontFamily: 'Montserrat',
+                              fontSize: 12),
                         ),
                       ],
                     ),
@@ -190,12 +225,15 @@ class _NotchBottomState extends State<NotchBottom> {
                         Icon(
                           FontAwesomeIcons.facebookMessenger,
                           color: currentTab == 3 ? Colors.blue : Colors.grey,
+                          size: 20,
                         ),
                         Text(
                           'Community',
                           style: TextStyle(
-                            color: currentTab == 3 ? Colors.blue : Colors.grey,
-                          ),
+                              color:
+                                  currentTab == 3 ? Colors.blue : Colors.grey,
+                              fontFamily: 'Montserrat',
+                              fontSize: 12),
                         ),
                       ],
                     ),
