@@ -61,7 +61,7 @@ class _NotchBottomState extends State<NotchBottom> {
                             children: <Widget>[
                               Positioned(
                                 // bottom: 0,
-                                left: MediaQuery.of(context).size.width * 0.15,
+                                left: MediaQuery.of(context).size.width * 0.14,
                                 child: IconButton(
                                   icon: Icon(
                                     FontAwesomeIcons.tape,
