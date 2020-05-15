@@ -4,6 +4,7 @@ import 'package:chat_app/chat/chatPage.dart';
 import 'package:chat_app/collapseAppBar/sliverScreen.dart';
 import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
+import 'package:chat_app/notchedBottomTab/notchbottom.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
 import 'package:chat_app/retrieveData/retrieveFood.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -94,6 +95,13 @@ class MyHomePage extends StatelessWidget {
             buttoncolor: Colors.orange[700],
             callback: () {
               Navigator.of(context).pushNamed(SliverScreen.id);
+            },
+          ),
+          CustomButton(
+            text: "Notched BottomBAr ",
+            buttoncolor: Colors.orange[700],
+            callback: () {
+              Navigator.of(context).pushNamed(NotchBottom.id);
             },
           ),
         ],
