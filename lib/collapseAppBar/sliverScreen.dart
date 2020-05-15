@@ -72,17 +72,16 @@ class _SliverScreenState extends State<SliverScreen> {
             ],
             flexibleSpace: holder,
           ),
-          SliverFillRemaining(
-            child: Column(
-              children: List<int>.generate(6, (index) => index)
-                  .map((index) => Container(
-                        height: 40,
-                        margin: EdgeInsets.symmetric(vertical: 10),
-                        color: Colors.grey[300],
-                        alignment: Alignment.center,
-                        child: Text('$index item'),
-                      ))
-                  .toList(),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                Container(color: Colors.red, height: 150.0),
+                Container(color: Colors.purple, height: 150.0),
+                Container(color: Colors.green, height: 150.0),
+                Container(color: Colors.red, height: 150.0),
+                Container(color: Colors.purple, height: 150.0),
+                Container(color: Colors.green, height: 150.0),
+              ],
             ),
           )
         ],
