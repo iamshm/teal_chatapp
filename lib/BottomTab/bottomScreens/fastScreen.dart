@@ -10,10 +10,11 @@ class FastScreen extends StatelessWidget {
         title: Text(
           "Fasts",
           style: TextStyle(
-              color: fastFontColor,
-              fontSize: 20,
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.bold),
+            color: fastFontColor,
+            fontSize: 20,
+            fontFamily: 'Montserrat',
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
         automaticallyImplyLeading: false,
