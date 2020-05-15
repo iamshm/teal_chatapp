@@ -39,7 +39,8 @@ class _SliverScreenState extends State<SliverScreen> {
 
   bool get _isAppBarExpanded {
     return _controller.hasClients &&
-        _controller.offset > (150 - kToolbarHeight);
+        _controller.offset >
+            (MediaQuery.of(context).size.height * 0.175 - kToolbarHeight);
   }
 
   Widget build(BuildContext context) {
@@ -78,9 +79,9 @@ class _SliverScreenState extends State<SliverScreen> {
                 Container(color: Colors.red, height: 150.0),
                 Container(color: Colors.purple, height: 150.0),
                 Container(color: Colors.green, height: 150.0),
-                Container(color: Colors.red, height: 150.0),
-                Container(color: Colors.purple, height: 150.0),
-                Container(color: Colors.green, height: 150.0),
+                Container(color: Colors.amber, height: 150.0),
+                Container(color: Colors.blue, height: 150.0),
+                Container(color: Colors.orange, height: 150.0),
               ],
             ),
           )
