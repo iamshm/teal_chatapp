@@ -6,7 +6,6 @@ import 'package:chat_app/homePage.dart';
 import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:chat_app/notchedBottomTab/notchbottom.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
-import 'package:chat_app/retrieveData/retrieveFood.dart';
 import 'chat/chatPage.dart';
 
 import 'package:flutter/material.dart';
@@ -31,7 +30,6 @@ class MyApp extends StatelessWidget {
         HealthProfile.id: (context) => HealthProfile(),
         BottomNavBar.id: (context) => BottomNavBar(),
         PrepareFast.id: (context) => PrepareFast(),
-        RetrieveFood.id: (context) => RetrieveFood(),
         SliverScreen.id: (context) => SliverScreen(),
         NotchBottom.id: (context) => NotchBottom(),
       },

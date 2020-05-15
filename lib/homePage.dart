@@ -6,7 +6,6 @@ import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:chat_app/notchedBottomTab/notchbottom.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
-import 'package:chat_app/retrieveData/retrieveFood.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -81,13 +80,6 @@ class MyHomePage extends StatelessWidget {
             buttoncolor: Colors.blue[200],
             callback: () {
               Navigator.of(context).pushNamed(PrepareFast.id);
-            },
-          ),
-          CustomButton(
-            text: "Retrieve Food ",
-            buttoncolor: Colors.green[200],
-            callback: () {
-              Navigator.of(context).pushNamed(RetrieveFood.id);
             },
           ),
           CustomButton(
