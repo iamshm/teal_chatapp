@@ -2,7 +2,6 @@ import 'package:chat_app/chat/MessageOptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'message.dart';
 
 class Chat extends StatefulWidget {

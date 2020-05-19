@@ -1,4 +1,5 @@
 import 'package:chat_app/BottomTab/bottomNavBar.dart';
+import 'package:chat_app/Coupons/coupon.dart';
 import 'package:chat_app/calendar/calendar.dart';
 import 'package:chat_app/collapseAppBar/sliverScreen.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         PrepareFast.id: (context) => PrepareFast(),
         SliverScreen.id: (context) => SliverScreen(),
         NotchBottom.id: (context) => NotchBottom(),
+        CouponData.id: (context) => CouponData(),
       },
     );
   }

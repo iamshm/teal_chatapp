@@ -1,4 +1,5 @@
 import 'package:chat_app/BottomTab/bottomNavBar.dart';
+import 'package:chat_app/Coupons/coupon.dart';
 import 'package:chat_app/calendar/calendar.dart';
 import 'package:chat_app/chat/chatPage.dart';
 import 'package:chat_app/collapseAppBar/sliverScreen.dart';
@@ -91,9 +92,16 @@ class MyHomePage extends StatelessWidget {
           ),
           CustomButton(
             text: "Notched BottomBAr ",
-            buttoncolor: Colors.orange[700],
+            buttoncolor: Colors.green[700],
             callback: () {
               Navigator.of(context).pushNamed(NotchBottom.id);
+            },
+          ),
+          CustomButton(
+            text: "Coupons ",
+            buttoncolor: Colors.blue[700],
+            callback: () {
+              Navigator.of(context).pushNamed(CouponData.id);
             },
           ),
         ],
