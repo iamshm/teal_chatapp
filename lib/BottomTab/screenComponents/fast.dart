@@ -12,15 +12,17 @@ class Fast extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return GestureDetector(
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.2,
-          vertical: MediaQuery.of(context).size.height * 0.01,
+          horizontal: screenWidth * 0.2,
+          vertical: screenHeight * 0.01,
         ),
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.145,
-          width: MediaQuery.of(context).size.width * 0.6,
+          constraints:
+              BoxConstraints(minHeight: screenHeight * 0.11, minWidth: 220),
           decoration: BoxDecoration(
               color: fastColor,
               borderRadius: BorderRadius.all(
@@ -34,8 +36,8 @@ class Fast extends StatelessWidget {
               ]),
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.07,
-              vertical: MediaQuery.of(context).size.height * 0.02,
+              horizontal: screenWidth * 0.07,
+              vertical: screenHeight * 0.02,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +53,7 @@ class Fast extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.01,
+                      width: screenWidth * 0.01,
                     ),
                     Text(
                       "HOURS",
@@ -64,7 +66,7 @@ class Fast extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.005,
+                  height: screenWidth * 0.005,
                 ),
                 Text(
                   fastType,
@@ -75,7 +77,7 @@ class Fast extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.011,
+                  height: screenWidth * 0.011,
                 ),
                 Wrap(
                   children: <Widget>[
