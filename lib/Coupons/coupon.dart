@@ -37,7 +37,7 @@ class _CouponDataState extends State<CouponData> {
                           name: doc.data['name'],
                           percentage: doc.data['percentage'],
                           limit: doc.data['limit'],
-                          id: doc.data['id'],
+                          // id: doc.data['id'],
                         ))
                     .toList();
                 return ListView(
@@ -57,12 +57,11 @@ class _CouponDataState extends State<CouponData> {
 }
 
 class Coupon extends StatefulWidget {
-  final String amount, name, id;
+  final String amount, name;
   final bool percentage;
   final int limit;
 
-  const Coupon(
-      {Key key, this.amount, this.name, this.percentage, this.limit, this.id})
+  const Coupon({Key key, this.amount, this.name, this.percentage, this.limit})
       : super(key: key);
 
   @override
@@ -70,6 +69,8 @@ class Coupon extends StatefulWidget {
 }
 
 class _CouponState extends State<Coupon> {
+  DocumentReference documentReference =
+      Firestore.instance.collection("coupons").document();
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -156,7 +157,14 @@ class _CouponState extends State<Coupon> {
                       Icons.add,
                       color: Colors.black,
                     ),
-                    onPressed: () => {}),
+                    onPressed: () async {
+                      setState(() {
+                        Firestore.instance
+                            .collection("Coupon")
+                            .document(documentReference.documentID)
+                            .updateData({"limit": widget.limit - 1});
+                      });
+                    }),
               ],
             )
           ],
