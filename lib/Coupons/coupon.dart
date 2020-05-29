@@ -32,9 +32,9 @@ class _CouponDataState extends State<CouponData> {
         vertical: 0,
         horizontal: screenWidth * 0.1,
       ),
-      decoration: BoxDecoration(
-          color: Colors.amberAccent[100],
-          borderRadius: BorderRadius.all(Radius.circular(10))),
+      // decoration: BoxDecoration(
+      //     color: Colors.amberAccent[100],
+      //     borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,7 +103,7 @@ class _CouponDataState extends State<CouponData> {
                 onPressed: () => updateCount(),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
