@@ -34,6 +34,7 @@ dependencies:
   shared_preferences:
   font_awesome_flutter:
   dotted_border: 
+  youtube_player_flutter: ^6.0.3+2
 
 
 dev_dependencies:

@@ -7,6 +7,7 @@ import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:chat_app/notchedBottomTab/notchbottom.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
+import 'package:chat_app/youtubeVideos/screens/ytHomeScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -16,95 +17,104 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "Teal WellNess",
-                style: TextStyle(
-                  fontSize: 40.0,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Teal WellNess",
+                  style: TextStyle(
+                    fontSize: 40.0,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 20.0,
-          ),
-          CustomButton(
-            text: "Log In",
-            buttoncolor: Colors.blue,
-            callback: () {
-              Navigator.of(context).pushNamed(Login.id);
-            },
-          ),
-          CustomButton(
-            text: "Register",
-            buttoncolor: Colors.green,
-            callback: () {
-              Navigator.of(context).pushNamed(Registration.id);
-            },
-          ),
-          CustomButton(
-            text: "Calendar",
-            buttoncolor: Colors.red[400],
-            callback: () {
-              Navigator.of(context).pushNamed(Calendar.id);
-            },
-          ),
-          CustomButton(
-            text: "Daily Targets",
-            buttoncolor: Colors.yellow,
-            callback: () {
-              Navigator.of(context).pushNamed(DailyTarget.id);
-            },
-          ),
-          CustomButton(
-            text: "Health Profile",
-            buttoncolor: Colors.orange,
-            callback: () {
-              Navigator.of(context).pushNamed(HealthProfile.id);
-            },
-          ),
-          CustomButton(
-            text: "Fast NavBar ",
-            buttoncolor: Colors.pink[200],
-            callback: () {
-              Navigator.of(context).pushNamed(BottomNavBar.id);
-            },
-          ),
-          CustomButton(
-            text: "Prepare Fast ",
-            buttoncolor: Colors.blue[200],
-            callback: () {
-              Navigator.of(context).pushNamed(PrepareFast.id);
-            },
-          ),
-          CustomButton(
-            text: "Collapse Appbar ",
-            buttoncolor: Colors.orange[700],
-            callback: () {
-              Navigator.of(context).pushNamed(SliverScreen.id);
-            },
-          ),
-          CustomButton(
-            text: "Notched BottomBAr ",
-            buttoncolor: Colors.green[700],
-            callback: () {
-              Navigator.of(context).pushNamed(NotchBottom.id);
-            },
-          ),
-          CustomButton(
-            text: "Coupons ",
-            buttoncolor: Colors.blue[700],
-            callback: () {
-              Navigator.of(context).pushNamed(CouponData.id);
-            },
-          ),
-        ],
+              ],
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            CustomButton(
+              text: "Log In",
+              buttoncolor: Colors.blue,
+              callback: () {
+                Navigator.of(context).pushNamed(Login.id);
+              },
+            ),
+            CustomButton(
+              text: "Register",
+              buttoncolor: Colors.green,
+              callback: () {
+                Navigator.of(context).pushNamed(Registration.id);
+              },
+            ),
+            CustomButton(
+              text: "Calendar",
+              buttoncolor: Colors.red[400],
+              callback: () {
+                Navigator.of(context).pushNamed(Calendar.id);
+              },
+            ),
+            CustomButton(
+              text: "Daily Targets",
+              buttoncolor: Colors.yellow,
+              callback: () {
+                Navigator.of(context).pushNamed(DailyTarget.id);
+              },
+            ),
+            CustomButton(
+              text: "Health Profile",
+              buttoncolor: Colors.orange,
+              callback: () {
+                Navigator.of(context).pushNamed(HealthProfile.id);
+              },
+            ),
+            CustomButton(
+              text: "Fast NavBar ",
+              buttoncolor: Colors.pink[200],
+              callback: () {
+                Navigator.of(context).pushNamed(BottomNavBar.id);
+              },
+            ),
+            CustomButton(
+              text: "Prepare Fast ",
+              buttoncolor: Colors.blue[200],
+              callback: () {
+                Navigator.of(context).pushNamed(PrepareFast.id);
+              },
+            ),
+            CustomButton(
+              text: "Collapse Appbar ",
+              buttoncolor: Colors.orange[700],
+              callback: () {
+                Navigator.of(context).pushNamed(SliverScreen.id);
+              },
+            ),
+            CustomButton(
+              text: "Notched BottomBAr ",
+              buttoncolor: Colors.green[700],
+              callback: () {
+                Navigator.of(context).pushNamed(NotchBottom.id);
+              },
+            ),
+            CustomButton(
+              text: "Coupons ",
+              buttoncolor: Colors.blue[700],
+              callback: () {
+                Navigator.of(context).pushNamed(CouponData.id);
+              },
+            ),
+            CustomButton(
+              text: "YouTubeScreen ",
+              buttoncolor: Colors.blue[700],
+              callback: () {
+                Navigator.of(context).pushNamed(YtHomeScreen.id);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
