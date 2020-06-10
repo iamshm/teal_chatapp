@@ -7,6 +7,7 @@ import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:chat_app/notchedBottomTab/notchbottom.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
+import 'package:chat_app/webviewYoutube/webviewYT.dart';
 import 'package:chat_app/youtubeVideos/screens/ytHomeScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -107,10 +108,10 @@ class MyHomePage extends StatelessWidget {
               },
             ),
             CustomButton(
-              text: "YouTubeScreen ",
+              text: "WebViewYouTube ",
               buttoncolor: Colors.blue[700],
               callback: () {
-                Navigator.of(context).pushNamed(YtHomeScreen.id);
+                Navigator.of(context).pushNamed(WebViewYoutube.id);
               },
             ),
           ],

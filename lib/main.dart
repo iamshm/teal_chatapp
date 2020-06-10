@@ -7,6 +7,7 @@ import 'package:chat_app/homePage.dart';
 import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:chat_app/notchedBottomTab/notchbottom.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
+import 'package:chat_app/webviewYoutube/webviewYT.dart';
 import 'package:chat_app/youtubeVideos/screens/ytHomeScreen.dart';
 import 'chat/chatPage.dart';
 
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
         SliverScreen.id: (context) => SliverScreen(),
         NotchBottom.id: (context) => NotchBottom(),
         CouponData.id: (context) => CouponData(),
-        YtHomeScreen.id: (context) => YtHomeScreen(),
+        // YtHomeScreen.id: (context) => YtHomeScreen(),
+        WebViewYoutube.id: (context) => WebViewYoutube(),
       },
     );
   }
