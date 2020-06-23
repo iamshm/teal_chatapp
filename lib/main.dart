@@ -2,13 +2,13 @@ import 'package:chat_app/BottomTab/bottomNavBar.dart';
 import 'package:chat_app/Coupons/coupon.dart';
 import 'package:chat_app/calendar/calendar.dart';
 import 'package:chat_app/collapseAppBar/sliverScreen.dart';
+import 'package:chat_app/fatSecret/recipe.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:chat_app/homePage.dart';
 import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:chat_app/notchedBottomTab/notchbottom.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
 import 'package:chat_app/webviewYoutube/webviewYT.dart';
-import 'package:chat_app/youtubeVideos/screens/ytHomeScreen.dart';
 import 'chat/chatPage.dart';
 
 import 'package:flutter/material.dart';
@@ -36,8 +36,8 @@ class MyApp extends StatelessWidget {
         SliverScreen.id: (context) => SliverScreen(),
         NotchBottom.id: (context) => NotchBottom(),
         CouponData.id: (context) => CouponData(),
-        // YtHomeScreen.id: (context) => YtHomeScreen(),
         WebViewYoutube.id: (context) => WebViewYoutube(),
+        Recipe.id: (context) => Recipe(),
       },
     );
   }

@@ -4,6 +4,7 @@ import 'package:chat_app/calendar/calendar.dart';
 import 'package:chat_app/chat/chatPage.dart';
 import 'package:chat_app/collapseAppBar/sliverScreen.dart';
 import 'package:chat_app/dailyTargets/dailyTarget.dart';
+import 'package:chat_app/fatSecret/recipe.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:chat_app/notchedBottomTab/notchbottom.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
@@ -109,9 +110,16 @@ class MyHomePage extends StatelessWidget {
             ),
             CustomButton(
               text: "WebViewYouTube ",
-              buttoncolor: Colors.blue[700],
+              buttoncolor: Colors.green[700],
               callback: () {
                 Navigator.of(context).pushNamed(WebViewYoutube.id);
+              },
+            ),
+            CustomButton(
+              text: "Recipe ",
+              buttoncolor: Colors.blue[700],
+              callback: () {
+                Navigator.of(context).pushNamed(Recipe.id);
               },
             ),
           ],

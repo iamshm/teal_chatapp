@@ -35,6 +35,8 @@ dependencies:
   font_awesome_flutter:
   dotted_border: 
   webview_flutter: ^0.3.22+1
+  flute_music_player:
+  crypto:
 
 
 dev_dependencies:
