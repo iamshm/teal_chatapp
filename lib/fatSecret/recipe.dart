@@ -56,7 +56,7 @@ class RecipeState extends State<Recipe> {
     }
   }
 
-  Future<String> getData(value) async {
+  Future<String> foodSearch(value) async {
     print("input value --> " + value);
     var response = await http.get(
         "https://platform.fatsecret.com/rest/server.api?method=foods.search&oauth_consumer_key=$consumerKey&oauth_nonce=abcdef&oauth_signature=$oAuthSignature&oauth_signature_method=HMAC-SHA1&oauth_timestamp=$timestamp&oauth_version=1.0&search_expression:$value&format=json");
@@ -74,7 +74,7 @@ class RecipeState extends State<Recipe> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextField(
-              onSubmitted: (value) => getData(value),
+              onSubmitted: (value) => foodSearch(value),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(left: 25.0),
                 hintText: 'Search Food ',
