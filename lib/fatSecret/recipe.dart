@@ -20,31 +20,31 @@ class RecipeState extends State<Recipe> {
   String getOAuthSignature() {
     String normalizedParameters = Uri.encodeFull(
         "a=foo&oauth_consumer_key=$consumerKey&oauth_nonce=abcdef&oauth_signature_method=HMAC-SHA1&oauth_timestamp=$timestamp&oauth_version=1.0&z=bar");
-    print("normalizedParameters" + normalizedParameters);
+    print("normalizedParameters --> " + normalizedParameters);
     String signatureBaseString = "GET" +
         "&" +
         Uri.encodeFull("https://platform.fatsecret.com/rest/server.api") +
         "&" +
         normalizedParameters;
-    print("signatureBaseString" + signatureBaseString);
+    print("signatureBaseString --> " + signatureBaseString);
 
     var text = utf8.encode(signatureBaseString);
-    print("text");
+    print("text (encoded signBaseStr)--> ");
     print(text);
 
     var key = utf8.encode("$consumerSecret" + "&");
-    print("key");
+    print("key  cons secret --> ");
     print(key);
 
     var hmacSha1 = new Hmac(sha1, key);
-    print("hmacSha1");
+    print("hmacSha1 --> ");
     print(hmacSha1);
 
     var digest = hmacSha1.convert(text);
-    print("digest");
+    print("digest (hmcasha1 converted test) ---> ");
     print(digest);
     var osign = Uri.encodeFull(base64.encode(digest.bytes));
-    print("oauthSignature" + osign);
+    print("oauthSignature---> " + osign);
     return Uri.encodeFull(base64.encode(digest.bytes));
   }
 
@@ -57,7 +57,7 @@ class RecipeState extends State<Recipe> {
   }
 
   Future<String> getData(value) async {
-    print(value);
+    print("input value --> " + value);
     var response = await http.get(
         "https://platform.fatsecret.com/rest/server.api?method=foods.search&oauth_consumer_key=$consumerKey&oauth_nonce=abcdef&oauth_signature=$oAuthSignature&oauth_signature_method=HMAC-SHA1&oauth_timestamp=$timestamp&oauth_version=1.0&search_expression:$value&format=json");
     Map<String, dynamic> data = json.decode(response.body);
