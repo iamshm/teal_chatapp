@@ -21,7 +21,7 @@ class RecipeState extends State<Recipe> {
     String normalizedParameters = Uri.encodeFull(
         "a=foo&oauth_consumer_key=$consumerKey&oauth_nonce=abcdef&oauth_signature_method=HMAC-SHA1&oauth_timestamp=$timestamp&oauth_version=1.0&z=bar");
     print("normalizedParameters --> " + normalizedParameters);
-    String signatureBaseString = "GET" +
+    String signatureBaseString = "POST" +
         "&" +
         Uri.encodeFull("https://platform.fatsecret.com/rest/server.api") +
         "&" +
@@ -68,25 +68,26 @@ class RecipeState extends State<Recipe> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        body: SafeArea(
-      child: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: TextField(
-              onSubmitted: (value) => foodSearch(value),
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(left: 25.0),
-                hintText: 'Search Food ',
-                hintStyle: TextStyle(),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(4.0),
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: TextField(
+                onSubmitted: (value) => foodSearch(value),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(left: 25.0),
+                  hintText: 'Search Food ',
+                  hintStyle: TextStyle(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(4.0),
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

@@ -7,6 +7,7 @@ import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:chat_app/homePage.dart';
 import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:chat_app/notchedBottomTab/notchbottom.dart';
+import 'package:chat_app/planCheckout/checkout.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
 import 'package:chat_app/webviewYoutube/webviewYT.dart';
 import 'chat/chatPage.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         CouponData.id: (context) => CouponData(),
         WebViewYoutube.id: (context) => WebViewYoutube(),
         Recipe.id: (context) => Recipe(),
+        Checkout.id: (context) => Checkout(),
       },
     );
   }

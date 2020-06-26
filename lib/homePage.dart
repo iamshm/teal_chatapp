@@ -7,6 +7,7 @@ import 'package:chat_app/dailyTargets/dailyTarget.dart';
 import 'package:chat_app/fatSecret/recipe.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:chat_app/notchedBottomTab/notchbottom.dart';
+import 'package:chat_app/planCheckout/checkout.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
 import 'package:chat_app/webviewYoutube/webviewYT.dart';
 import 'package:chat_app/youtubeVideos/screens/ytHomeScreen.dart';
@@ -120,6 +121,13 @@ class MyHomePage extends StatelessWidget {
               buttoncolor: Colors.blue[700],
               callback: () {
                 Navigator.of(context).pushNamed(Recipe.id);
+              },
+            ),
+            CustomButton(
+              text: "Check Out ",
+              buttoncolor: Colors.orange[700],
+              callback: () {
+                Navigator.of(context).pushNamed(Checkout.id);
               },
             ),
           ],
