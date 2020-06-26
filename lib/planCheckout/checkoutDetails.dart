@@ -18,19 +18,27 @@ class CheckoutDetails extends StatelessWidget {
           children: <Widget>[
             Text(
               detail,
+              textAlign: TextAlign.left,
               style: TextStyle(
                   color: Colors.teal,
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Montserrat'),
             ),
-            Text(
-              value,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Montserrat'),
+
+            Container(
+              // color: Colors.red,
+              width: 200,
+              alignment: Alignment.centerLeft,
+              child: Text(
+                value,
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Montserrat'),
+              ),
             ),
             // Container(
             //   width: 200,

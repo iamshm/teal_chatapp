@@ -1,8 +1,37 @@
 import 'package:chat_app/planCheckout/checkoutDetails.dart';
 import 'package:flutter/material.dart';
 
-class Checkout extends StatelessWidget {
+class Checkout extends StatefulWidget {
   static const String id = "CHECKOUT";
+
+  @override
+  _CheckoutState createState() => _CheckoutState();
+}
+
+class _CheckoutState extends State<Checkout> {
+  FocusNode _focus = new FocusNode();
+  bool isfocus = false;
+  bool isfilled = false;
+  TextEditingController _controller = new TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    _focus.addListener(_onFocusChange);
+    _controller.addListener(onTextChange);
+  }
+
+  void onTextChange() {
+    setState(() {
+      isfilled = _controller.text.isNotEmpty;
+    });
+  }
+
+  void _onFocusChange() {
+    setState(() {
+      isfocus = _focus.hasFocus;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,29 +111,39 @@ class Checkout extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: TextField(
-                onSubmitted: null,
-                style: TextStyle(
-                  color: Colors.teal,
-                  fontSize: 18,
-                  fontFamily: 'Montserrat',
-                ),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(left: 25.0),
-                  hintText: 'Enter coupon',
-                  hintStyle: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 18,
-                      fontFamily: 'Montserrat'),
-                  // suffixIcon: IconButton(icon: Icon(Icons.send), onPressed: null),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                    borderSide: BorderSide(color: Colors.teal),
+                  focusNode: _focus,
+                  controller: _controller,
+                  onSubmitted: null,
+                  style: TextStyle(
+                    color: Colors.teal,
+                    fontSize: 18,
+                    fontFamily: 'Montserrat',
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.teal[600], width: 2),
-                  ),
-                ),
-              ),
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 25.0),
+                    hintText: 'Enter coupon',
+                    hintStyle: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 18,
+                        fontFamily: 'Montserrat'),
+                    // suffixIcon: IconButton(icon: Icon(Icons.send), onPressed: null),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: Colors.teal),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.teal[600], width: 2),
+                    ),
+                    suffixIcon: (isfocus && isfilled)
+                        ? IconButton(
+                            icon: Icon(
+                              Icons.cancel,
+                              color: Colors.teal,
+                            ),
+                            onPressed: () => _controller.clear(),
+                          )
+                        : null,
+                  )),
             ),
           ],
         )),
