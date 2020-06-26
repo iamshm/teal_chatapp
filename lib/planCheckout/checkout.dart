@@ -24,15 +24,19 @@ class Checkout extends StatelessWidget {
           children: <Widget>[
             CheckoutDetails(
               detail: "Plan Duration : ",
+              value: " 1 month",
             ),
             CheckoutDetails(
               detail: "Amount : ",
+              value: "Rs. 10000",
             ),
             CheckoutDetails(
               detail: "Discount : ",
+              value: " 20 %",
             ),
             CheckoutDetails(
               detail: "Monthly Cost : ",
+              value: " Rs 1350",
             ),
             SizedBox(
               height: 25,
@@ -42,13 +46,17 @@ class Checkout extends StatelessWidget {
                 horizontal: 20,
                 vertical: 5,
               ),
-              child: Text(
-                "Plan Description",
-                style: TextStyle(
-                    color: Colors.teal,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Montserrat'),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Plan Description",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      color: Colors.teal,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Montserrat'),
+                ),
               ),
             ),
             Padding(
