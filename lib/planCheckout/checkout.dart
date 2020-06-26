@@ -107,7 +107,6 @@ class _CheckoutState extends State<Checkout> {
             SizedBox(
               height: 15,
             ),
-            //Coupon Text Field
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: TextField(
