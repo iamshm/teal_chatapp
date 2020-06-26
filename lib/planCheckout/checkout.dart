@@ -122,6 +122,12 @@ class _CheckoutState extends State<Checkout> {
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.only(left: 25.0),
                     hintText: 'Enter coupon',
+                    labelText: "Coupon",
+                    labelStyle: TextStyle(
+                      color: Colors.teal,
+                      fontSize: 18,
+                      fontFamily: 'Montserrat',
+                    ),
                     hintStyle: TextStyle(
                         color: Colors.black54,
                         fontSize: 18,
