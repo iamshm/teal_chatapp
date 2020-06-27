@@ -7,10 +7,24 @@ class VideoPages extends StatefulWidget {
   static const String id = "VIDEOPLAYER";
 
   static final videoList = [
+    '/storage/emulated/0/Download/s6e19.mkv',
     '/storage/emulated/0/Download/s6e22.mkv',
     '/storage/emulated/0/Download/s6e21.mkv',
     '/storage/emulated/0/Download/s6e20.mkv',
+    '/storage/emulated/0/Download/s6e18.mkv',
+    '/storage/emulated/0/Download/s6e17.mkv',
+    '/storage/emulated/0/Download/s6e16.mkv',
+    '/storage/emulated/0/Download/s6e15.mkv',
+    '/storage/emulated/0/Download/s6e14.mkv',
     '/storage/emulated/0/Download/s6e19.mkv',
+    '/storage/emulated/0/Download/s6e22.mkv',
+    '/storage/emulated/0/Download/s6e21.mkv',
+    '/storage/emulated/0/Download/s6e20.mkv',
+    '/storage/emulated/0/Download/s6e18.mkv',
+    '/storage/emulated/0/Download/s6e17.mkv',
+    '/storage/emulated/0/Download/s6e16.mkv',
+    '/storage/emulated/0/Download/s6e15.mkv',
+    '/storage/emulated/0/Download/s6e14.mkv',
   ];
 
   @override
@@ -18,11 +32,17 @@ class VideoPages extends StatefulWidget {
 }
 
 class _VideoPagesState extends State<VideoPages> {
+  PageController pageController = PageController(
+    initialPage: 0,
+    keepPage: true,
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: PageView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          controller: pageController,
           scrollDirection: Axis.vertical,
           itemBuilder: (context, index) {
             return VideoItem(
@@ -30,13 +50,16 @@ class _VideoPagesState extends State<VideoPages> {
                     VideoPlayerController.network(VideoPages.videoList[index]),
                 playNext: () {
                   setState(() {
-                    if (index == VideoPages.videoList.length) {
+                    if (index == VideoPages.videoList.length - 1) {
+                      pageController.jumpToPage(0);
                       index = 0;
                     } else {
                       index = index + 1;
+                      pageController.animateToPage(index,
+                          duration: Duration(milliseconds: 200),
+                          curve: Curves.ease);
                     }
-                    // videoPlayerController:
-                    // VideoPlayerController.network(VideoPages.videoList[index]);
+                    print(index);
                   });
                 });
           },
@@ -92,7 +115,6 @@ class _VideoItemState extends State<VideoItem> {
         IconButton(
             icon: Icon(Icons.skip_next),
             onPressed: () => {
-                  _chewieController.videoPlayerController.dispose(),
                   widget.playNext(),
                 })
       ],
