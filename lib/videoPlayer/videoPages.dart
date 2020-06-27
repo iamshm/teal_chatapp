@@ -23,6 +23,7 @@ class _VideoPagesState extends State<VideoPages> {
     return Scaffold(
       body: Center(
         child: PageView.builder(
+          scrollDirection: Axis.vertical,
           itemBuilder: (context, index) {
             return VideoItem(
                 videoPlayerController:
@@ -34,6 +35,8 @@ class _VideoPagesState extends State<VideoPages> {
                     } else {
                       index = index + 1;
                     }
+                    // videoPlayerController:
+                    // VideoPlayerController.network(VideoPages.videoList[index]);
                   });
                 });
           },
@@ -63,6 +66,10 @@ class _VideoItemState extends State<VideoItem> {
   void initState() {
     super.initState();
     Permission.storage.request();
+    initializePlayer();
+  }
+
+  initializePlayer() {
     _chewieController = new ChewieController(
         videoPlayerController: widget.videoPlayerController,
         aspectRatio: 16 / 9,
@@ -72,8 +79,8 @@ class _VideoItemState extends State<VideoItem> {
 
   @override
   void dispose() {
-    _chewieController.videoPlayerController.dispose();
     _chewieController.dispose();
+    _chewieController.videoPlayerController.dispose();
     super.dispose();
   }
 
@@ -83,7 +90,11 @@ class _VideoItemState extends State<VideoItem> {
       children: <Widget>[
         Chewie(controller: _chewieController),
         IconButton(
-            icon: Icon(Icons.skip_next), onPressed: () => widget.playNext())
+            icon: Icon(Icons.skip_next),
+            onPressed: () => {
+                  _chewieController.videoPlayerController.dispose(),
+                  widget.playNext(),
+                })
       ],
     );
   }
