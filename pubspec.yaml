@@ -37,6 +37,10 @@ dependencies:
   webview_flutter: ^0.3.22+1
   flute_music_player:
   crypto:
+  chewie: 
+  video_player:
+  permission_handler:
+  
 
 
 dev_dependencies:

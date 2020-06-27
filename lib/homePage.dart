@@ -9,6 +9,7 @@ import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:chat_app/notchedBottomTab/notchbottom.dart';
 import 'package:chat_app/planCheckout/checkout.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
+import 'package:chat_app/videoPlayer/videoPages.dart';
 import 'package:chat_app/webviewYoutube/webviewYT.dart';
 import 'package:chat_app/youtubeVideos/screens/ytHomeScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -114,6 +115,13 @@ class MyHomePage extends StatelessWidget {
               buttoncolor: Colors.green[700],
               callback: () {
                 Navigator.of(context).pushNamed(WebViewYoutube.id);
+              },
+            ),
+            CustomButton(
+              text: "VideoPlayer ",
+              buttoncolor: Colors.blue[700],
+              callback: () {
+                Navigator.of(context).pushNamed(VideoPages.id);
               },
             ),
             CustomButton(
