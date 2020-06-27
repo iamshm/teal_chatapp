@@ -29,10 +29,10 @@ class _VideoPagesState extends State<VideoPages> {
                     VideoPlayerController.network(VideoPages.videoList[index]),
                 playNext: () {
                   setState(() {
-                    if (index != VideoPages.videoList.length) {
-                      index = index + 1;
-                    } else {
+                    if (index == VideoPages.videoList.length) {
                       index = 0;
+                    } else {
+                      index = index + 1;
                     }
                   });
                 });
