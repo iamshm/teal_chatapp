@@ -25,7 +25,6 @@ class CheckoutDetails extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Montserrat'),
             ),
-
             Container(
               // color: Colors.red,
               width: 200,
@@ -40,25 +39,6 @@ class CheckoutDetails extends StatelessWidget {
                     fontFamily: 'Montserrat'),
               ),
             ),
-            // Container(
-            //   width: 200,
-            //   child: TextField(
-            //     onSubmitted: null,
-            //     style: TextStyle(
-            //         color: Colors.black,
-            //         fontSize: 18,
-            //         fontFamily: 'Montserrat'),
-            //     decoration: InputDecoration(
-            //       contentPadding: EdgeInsets.only(left: 5.0),
-            //       enabledBorder: UnderlineInputBorder(
-            //         borderSide: BorderSide(color: Colors.teal),
-            //       ),
-            //       focusedBorder: UnderlineInputBorder(
-            //         borderSide: BorderSide(color: Colors.teal[900], width: 2),
-            //       ),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

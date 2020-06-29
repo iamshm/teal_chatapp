@@ -166,10 +166,10 @@ class _NotchBottomState extends State<NotchBottom> {
                         Text(
                           'Nutrition',
                           style: TextStyle(
-                              color:
-                                  currentTab == 1 ? Colors.blue : Colors.grey,
-                              fontFamily: 'Montserrat',
-                              fontSize: 12),
+                            color: currentTab == 1 ? Colors.blue : Colors.grey,
+                            fontFamily: 'Montserrat',
+                            fontSize: 12,
+                          ),
                         ),
                       ],
                     ),

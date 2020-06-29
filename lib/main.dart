@@ -6,6 +6,7 @@ import 'package:chat_app/fatSecret/recipe.dart';
 import 'package:chat_app/healthProfile/healthProfile.dart';
 import 'package:chat_app/homePage.dart';
 import 'package:chat_app/dailyTargets/dailyTarget.dart';
+import 'package:chat_app/horizontalOptions/horizontalList.dart';
 import 'package:chat_app/notchedBottomTab/notchbottom.dart';
 import 'package:chat_app/planCheckout/checkout.dart';
 import 'package:chat_app/prepareFast/prepareFast.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         Recipe.id: (context) => Recipe(),
         Checkout.id: (context) => Checkout(),
         VideoPages.id: (context) => VideoPages(),
+        HorizontalList.id: (context) => HorizontalList(),
       },
     );
   }
