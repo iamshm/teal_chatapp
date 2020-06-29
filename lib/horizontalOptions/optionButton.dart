@@ -4,25 +4,34 @@ class OptionButton extends StatelessWidget {
   final String optionName;
   final IconData optionIcon;
   final bool colorFul;
+  final double optionHeight;
+  final double optionWidth;
 
-  const OptionButton({Key key, this.optionName, this.optionIcon, this.colorFul})
-      : super(key: key);
+  const OptionButton({
+    Key key,
+    this.optionName,
+    this.optionIcon,
+    this.colorFul,
+    this.optionHeight,
+    this.optionWidth,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(8),
       child: Container(
-        width: 120,
-        // alignment: Alignment.center,
+        height: optionHeight,
+        width: optionWidth,
+        alignment: Alignment.center,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              stops: [0.2, 0.5, 1],
+              stops: [0.2, 1],
               colors: colorFul
-                  ? [Colors.blue[200], Colors.blue[500], Colors.blue[700]]
-                  : [Colors.white30, Colors.white60, Colors.white70]),
+                  ? [Color(0xff18dbcb), Colors.blue]
+                  : [Colors.white30, Colors.grey[350]]),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
