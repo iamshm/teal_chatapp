@@ -16,7 +16,13 @@ class OptionButton extends StatelessWidget {
         // alignment: Alignment.center,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: colorFul ? Colors.blue[400] : Colors.white70,
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              stops: [0.2, 0.5, 1],
+              colors: colorFul
+                  ? [Colors.blue[200], Colors.blue[500], Colors.blue[700]]
+                  : [Colors.white30, Colors.white60, Colors.white70]),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -32,6 +38,7 @@ class OptionButton extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Montserrat',
                 fontSize: 15,
+                fontWeight: FontWeight.w700,
                 color: colorFul ? Colors.white : Colors.black87,
               ),
             ),
