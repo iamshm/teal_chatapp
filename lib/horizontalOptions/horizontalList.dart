@@ -30,7 +30,10 @@ class _HorizontalListState extends State<HorizontalList> {
   Future<String> loadData() async {
     String jsonString = await _loadAsset();
     final data = json.decode(jsonString);
-    dataLength = data.length;
+    setState(() {
+      dataLength = data.length;
+    });
+
     print(dataLength);
     for (int i = 0; i < dataLength; i++) {
       if (i % 5 == 0) {
@@ -48,6 +51,79 @@ class _HorizontalListState extends State<HorizontalList> {
 
   @override
   Widget build(BuildContext context) {
+    Widget getWidget(chunk) {
+      if (chunk.length == 3) {
+        return Stack(
+          children: <Widget>[
+            OptionButton(
+              topD: posY[1],
+              leftD: posX[1],
+              optionName: chunk[0]['name'],
+              optionIcon: FontAwesomeIcons.cartPlus,
+              colorFul: false,
+              optionHeight: 120,
+              optionWidth: 120,
+            ),
+            OptionButton(
+              topD: posY[3],
+              leftD: posX[3],
+              optionName: chunk[1]['name'],
+              optionIcon: FontAwesomeIcons.dumbbell,
+              colorFul: true,
+              optionHeight: 130,
+              optionWidth: 130,
+            ),
+            OptionButton(
+              topD: posY[4],
+              leftD: posX[4],
+              optionName: chunk[2]['name'],
+              optionIcon: FontAwesomeIcons.music,
+              colorFul: false,
+              optionHeight: 150,
+              optionWidth: 150,
+            ),
+          ],
+        );
+      } else if (chunk.length == 2) {
+        return Stack(
+          children: <Widget>[
+            OptionButton(
+              topD: posY[1],
+              leftD: posX[1],
+              optionName: chunk[0]['name'],
+              optionIcon: FontAwesomeIcons.cartPlus,
+              colorFul: false,
+              optionHeight: 120,
+              optionWidth: 120,
+            ),
+            OptionButton(
+              topD: posY[3],
+              leftD: posX[3],
+              optionName: chunk[1]['name'],
+              optionIcon: FontAwesomeIcons.dumbbell,
+              colorFul: true,
+              optionHeight: 130,
+              optionWidth: 130,
+            ),
+          ],
+        );
+      } else if (chunk.length == 1) {
+        return Stack(
+          children: <Widget>[
+            OptionButton(
+              topD: posY[1],
+              leftD: posX[1],
+              optionName: chunk[0]['name'],
+              optionIcon: FontAwesomeIcons.cartPlus,
+              colorFul: false,
+              optionHeight: 120,
+              optionWidth: 120,
+            ),
+          ],
+        );
+      }
+    }
+
     return Scaffold(
       backgroundColor: Color(0xffe2f5fb),
       body: SafeArea(
@@ -87,63 +163,43 @@ class _HorizontalListState extends State<HorizontalList> {
                       height: 600,
                       width: MediaQuery.of(context).size.width / 2,
                       child: Stack(
-                        children: <Widget>[
-                          OptionButton(
-                            topD: posY[0],
-                            leftD: posX[0],
-                            optionName: chunks[i][0]['name'],
-                            optionIcon: FontAwesomeIcons.pizzaSlice,
-                            colorFul: true,
-                            optionHeight: 140,
-                            optionWidth: 140,
-                          ),
-                          OptionButton(
-                            topD: posY[2],
-                            leftD: posX[2],
-                            optionName: chunks[i][1]['name'],
-                            optionIcon: FontAwesomeIcons.globeAmericas,
-                            colorFul: false,
-                            optionHeight: 130,
-                            optionWidth: 130,
-                          ),
-                        ],
-                      ),
+                          children: (chunks[i].length == 2)
+                              ? <Widget>[
+                                  OptionButton(
+                                    topD: posY[0],
+                                    leftD: posX[0],
+                                    optionName: chunks[i][0]['name'],
+                                    optionIcon: FontAwesomeIcons.pizzaSlice,
+                                    colorFul: true,
+                                    optionHeight: 140,
+                                    optionWidth: 140,
+                                  ),
+                                  OptionButton(
+                                    topD: posY[2],
+                                    leftD: posX[2],
+                                    optionName: chunks[i][1]['name'],
+                                    optionIcon: FontAwesomeIcons.globeAmericas,
+                                    colorFul: false,
+                                    optionHeight: 130,
+                                    optionWidth: 130,
+                                  )
+                                ]
+                              : <Widget>[
+                                  OptionButton(
+                                    topD: posY[0],
+                                    leftD: posX[0],
+                                    optionName: chunks[i][0]['name'],
+                                    optionIcon: FontAwesomeIcons.pizzaSlice,
+                                    colorFul: true,
+                                    optionHeight: 140,
+                                    optionWidth: 140,
+                                  ),
+                                ]),
                     )
                   : Container(
                       height: 600,
                       width: MediaQuery.of(context).size.width / 2,
-                      child: Stack(
-                        children: <Widget>[
-                          OptionButton(
-                            topD: posY[1],
-                            leftD: posX[1],
-                            optionName: chunks[i][0]['name'],
-                            optionIcon: FontAwesomeIcons.cartPlus,
-                            colorFul: false,
-                            optionHeight: 120,
-                            optionWidth: 120,
-                          ),
-                          OptionButton(
-                            topD: posY[3],
-                            leftD: posX[3],
-                            optionName: chunks[i][1]['name'],
-                            optionIcon: FontAwesomeIcons.dumbbell,
-                            colorFul: true,
-                            optionHeight: 130,
-                            optionWidth: 130,
-                          ),
-                          OptionButton(
-                            topD: posY[4],
-                            leftD: posX[4],
-                            optionName: chunks[i][2]['name'],
-                            optionIcon: FontAwesomeIcons.music,
-                            colorFul: false,
-                            optionHeight: 150,
-                            optionWidth: 150,
-                          ),
-                        ],
-                      ),
-                    ),
+                      child: getWidget(chunks[i])),
             ),
           )
         ],
